@@ -3,7 +3,7 @@ Library    QWeb     # Import library
 
 *** Variables ***
 ${category} =  (For OBC Category) (Fresh)
-${district} =   'AGRA'
+${district} =   AGRA
 
 *** Test Cases ***
 Basic interaction
@@ -11,5 +11,5 @@ Basic interaction
     ClickText       STUDENT                         1s              # Click *button* with specific text
     ClickItem       Registration            Fresh Login             1s     
     ClickText       Postmatric Other Than Intermediate (Fresh)          ${category}
-    DropDown        जिला           r?${district}/c-1
+    DropDown        जिला           15
 

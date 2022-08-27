@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220827 21:23:43.586" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220827 21:39:09.374" rpa="false" schemaversion="3">
 <suite id="s1" name="Test" source="C:\Users\Administrator\Desktop\cibermen-test\form-automation\test.robot">
 <test id="s1-t1" name="Basic interaction" line="9">
 <kw name="Open Browser" library="QWeb">
@@ -8,12 +8,12 @@
 <tag>Browser</tag>
 <tag>Interaction</tag>
 <doc>Open new browser to given url.</doc>
-<msg timestamp="20220827 21:23:45.280" level="INFO">
+<msg timestamp="20220827 21:39:10.923" level="INFO">
 QWeb version number: 2.0.3</msg>
-<msg timestamp="20220827 21:23:46.920" level="INFO">Browser: chrome</msg>
-<msg timestamp="20220827 21:23:46.923" level="INFO">Browser version: 104.0.5112.102</msg>
-<msg timestamp="20220827 21:23:46.930" level="INFO">Chromedriver version: 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307})</msg>
-<status status="PASS" starttime="20220827 21:23:45.279" endtime="20220827 21:23:48.300"/>
+<msg timestamp="20220827 21:39:12.538" level="INFO">Browser: chrome</msg>
+<msg timestamp="20220827 21:39:12.544" level="INFO">Browser version: 104.0.5112.102</msg>
+<msg timestamp="20220827 21:39:12.546" level="INFO">Chromedriver version: 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307})</msg>
+<status status="PASS" starttime="20220827 21:39:10.923" endtime="20220827 21:39:13.866"/>
 </kw>
 <kw name="Click Text" library="QWeb">
 <arg>STUDENT</arg>
@@ -21,7 +21,7 @@ QWeb version number: 2.0.3</msg>
 <tag>Interaction</tag>
 <tag>Text</tag>
 <doc>Click text on web page.</doc>
-<status status="PASS" starttime="20220827 21:23:48.303" endtime="20220827 21:23:48.518"/>
+<status status="PASS" starttime="20220827 21:39:13.867" endtime="20220827 21:39:14.005"/>
 </kw>
 <kw name="Click Item" library="QWeb">
 <arg>Registration</arg>
@@ -30,7 +30,7 @@ QWeb version number: 2.0.3</msg>
 <tag>Interaction</tag>
 <tag>Item</tag>
 <doc>Click item (usually icon or picture) on webpage.</doc>
-<status status="PASS" starttime="20220827 21:23:48.519" endtime="20220827 21:23:49.163"/>
+<status status="PASS" starttime="20220827 21:39:14.005" endtime="20220827 21:39:14.474"/>
 </kw>
 <kw name="Click Text" library="QWeb">
 <arg>Postmatric Other Than Intermediate (Fresh)</arg>
@@ -38,41 +38,28 @@ QWeb version number: 2.0.3</msg>
 <tag>Interaction</tag>
 <tag>Text</tag>
 <doc>Click text on web page.</doc>
-<status status="PASS" starttime="20220827 21:23:49.163" endtime="20220827 21:23:50.202"/>
+<status status="PASS" starttime="20220827 21:39:14.475" endtime="20220827 21:39:15.433"/>
 </kw>
 <kw name="Drop Down" library="QWeb">
 <arg>जिला</arg>
-<arg>${district}</arg>
+<arg>15</arg>
 <tag>Dropdown</tag>
 <tag>Interaction</tag>
 <doc>Select an option from dropdown menu/list.</doc>
-<kw name="Log Screenshot" library="QWeb">
-<tag>Logging</tag>
-<doc>Log screenshot to Robot Framework log.</doc>
-<msg timestamp="20220827 21:24:02.682" level="INFO">Saved screenshot to C:\Users\Administrator\Desktop\cibermen-test\form-automation\screenshots\screenshot-Basic_interaction-e896182e-5b65-4e27-8d21-d08ce2e7103c.png</msg>
-<msg timestamp="20220827 21:24:02.689" level="INFO">Current url is: https://scholarship.up.gov.in/RegistrationFormInstitute.aspx?C=MQ==</msg>
-<msg timestamp="20220827 21:24:02.690" level="INFO" html="true">&lt;a href="screenshots/screenshot-Basic_interaction-e896182e-5b65-4e27-8d21-d08ce2e7103c.png"&gt;&lt;img src="screenshots/screenshot-Basic_interaction-e896182e-5b65-4e27-8d21-d08ce2e7103c.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20220827 21:24:02.438" endtime="20220827 21:24:02.690"/>
+<status status="PASS" starttime="20220827 21:39:15.434" endtime="20220827 21:39:15.742"/>
 </kw>
-<msg timestamp="20220827 21:24:02.692" level="FAIL">QWebValueError: Option "'AGRA'" is not in the options list.
-The list contained these options: ['SELECT', 'AGRA', 'ALIGARH', 'PRAYAGRAJ', 'AMBEDKAR NGR.', 'AURAIYA', 'AZAMGARH', 'BAGHPAT', 'BAHRAICH', 'BALLIA', 'BALRAMPUR', 'BANDA', 'BARABANKI', 'BAREILLY', 'BASTI', 'BIJNOR', 'BUDAUN', 'BULANDSHAHR', 'CHANDAULI', 'CHITRAKOOT', 'CSM NAGAR', 'DEORIA', 'ETAH', 'ETAWAH', 'AYODHYA', 'FARRUKHABAD', 'FATEHPUR', 'FIROZABAD', 'GB NAGAR', 'GHAZIABAD', 'GHAZIPUR', 'GONDA', 'GORAKHPUR', 'HAMIRPUR', 'HAPUR', 'HARDOI', 'HATHRAS', 'JALAUN', 'JAUNPUR', 'JHANSI', 'JP NAGAR', 'KANNAUJ', 'KANPUR DEHAT', 'KANPUR NAGAR', 'KANSHIRAM NAGAR', 'KAUSHAMBI', 'KHERI', 'KUSHINAGAR', 'LALITPUR', 'LUCKNOW', 'MAHARAJGANJ', 'MAHOBA', 'MAINPURI', 'MATHURA', 'MAU', 'MEERUT', 'MIRZAPUR', 'MORADABAD', 'MUZAFFARNAGAR', 'PILIBHIT', 'PRATAPGARH', 'RAE BARELI', 'RAMPUR', 'SAHARANPUR', 'SAMBHAL', 'SHAHJAHANPUR', 'SHAMLI', 'SHRAWASTI', 'SIDDHARTHNAGAR', 'SITAPUR', 'SK NAGAR', 'SONBHADRA', 'SR NAGAR', 'SULTANPUR', 'UNNAO', 'VARANASI'].
-The list contained these values: ['', '15', '12', '45', '48', '32', '61', '08', '50', '63', '52', '40', '46', '20', '55', '03', '19', '11', '66', '41', '72', '60', '17', '31', '47', '29', '42', '16', '10', '09', '65', '53', '58', '38', '74', '25', '13', '35', '64', '36', '06', '30', '33', '34', '71', '44', '23', '59', '37', '27', '57', '39', '18', '14', '62', '07', '69', '04', '02', '21', '43', '28', '05', '01', '75', '22', '73', '51', '54', '24', '56', '70', '68', '49', '26', '67'].</msg>
-<status status="FAIL" starttime="20220827 21:23:50.203" endtime="20220827 21:24:02.693"/>
-</kw>
-<status status="FAIL" starttime="20220827 21:23:45.279" endtime="20220827 21:24:02.694">QWebValueError: Option "'AGRA'" is not in the options list.
-The list contained these options: ['SELECT', 'AGRA', 'ALIGARH', 'PRAYAGRAJ', 'AMBEDKAR NGR.', 'AURAIYA', 'AZAMGARH', 'BAGHPAT', 'BAHRAICH', 'BALLIA', 'BALRAMPUR', 'BANDA', 'BARABANKI', 'BAREILLY', 'BASTI', 'BIJNOR', 'BUDAUN', 'BULANDSHAHR', 'CHANDAULI', 'CHITRAKOOT', 'CSM NAGAR', 'DEORIA', 'ETAH', 'ETAWAH', 'AYODHYA', 'FARRUKHABAD', 'FATEHPUR', 'FIROZABAD', 'GB NAGAR', 'GHAZIABAD', 'GHAZIPUR', 'GONDA', 'GORAKHPUR', 'HAMIRPUR', 'HAPUR', 'HARDOI', 'HATHRAS', 'JALAUN', 'JAUNPUR', 'JHANSI', 'JP NAGAR', 'KANNAUJ', 'KANPUR DEHAT', 'KANPUR NAGAR', 'KANSHIRAM NAGAR', 'KAUSHAMBI', 'KHERI', 'KUSHINAGAR', 'LALITPUR', 'LUCKNOW', 'MAHARAJGANJ', 'MAHOBA', 'MAINPURI', 'MATHURA', 'MAU', 'MEERUT', 'MIRZAPUR', 'MORADABAD', 'MUZAFFARNAGAR', 'PILIBHIT', 'PRATAPGARH', 'RAE BARELI', 'RAMPUR', 'SAHARANPUR', 'SAMBHAL', 'SHAHJAHANPUR', 'SHAMLI', 'SHRAWASTI', 'SIDDHARTHNAGAR', 'SITAPUR', 'SK NAGAR', 'SONBHADRA', 'SR NAGAR', 'SULTANPUR', 'UNNAO', 'VARANASI'].
-The list contained these values: ['', '15', '12', '45', '48', '32', '61', '08', '50', '63', '52', '40', '46', '20', '55', '03', '19', '11', '66', '41', '72', '60', '17', '31', '47', '29', '42', '16', '10', '09', '65', '53', '58', '38', '74', '25', '13', '35', '64', '36', '06', '30', '33', '34', '71', '44', '23', '59', '37', '27', '57', '39', '18', '14', '62', '07', '69', '04', '02', '21', '43', '28', '05', '01', '75', '22', '73', '51', '54', '24', '56', '70', '68', '49', '26', '67'].</status>
+<status status="PASS" starttime="20220827 21:39:10.923" endtime="20220827 21:39:15.745"/>
 </test>
-<status status="FAIL" starttime="20220827 21:23:43.588" endtime="20220827 21:24:02.698"/>
+<status status="PASS" starttime="20220827 21:39:09.374" endtime="20220827 21:39:15.747"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Test">Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
 </suite>
 </statistics>
 <errors>
