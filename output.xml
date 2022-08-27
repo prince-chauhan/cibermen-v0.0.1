@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220827 17:24:00.076" rpa="false" schemaversion="3">
+<suite id="s1" name="Test" source="C:\Users\Administrator\Desktop\cibermen-test\form-automation\test.robot">
+<test id="s1-t1" name="Basic interaction" line="5">
+<kw name="Open Browser" library="QWeb">
+<arg>https://qentinelqi.github.io/shop</arg>
+<arg>Chrome</arg>
+<tag>Browser</tag>
+<tag>Interaction</tag>
+<doc>Open new browser to given url.</doc>
+<msg timestamp="20220827 17:24:01.622" level="INFO">
+QWeb version number: 2.0.3</msg>
+<msg timestamp="20220827 17:24:03.213" level="INFO">Browser: chrome</msg>
+<msg timestamp="20220827 17:24:03.217" level="INFO">Browser version: 104.0.5112.102</msg>
+<msg timestamp="20220827 17:24:03.217" level="INFO">Chromedriver version: 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307})</msg>
+<status status="PASS" starttime="20220827 17:24:01.622" endtime="20220827 17:24:03.971"/>
+</kw>
+<kw name="Verify Text" library="QWeb">
+<arg>The animal friendly clothing company</arg>
+<tag>Text</tag>
+<tag>Verification</tag>
+<doc>Verify page contains given text.</doc>
+<status status="PASS" starttime="20220827 17:24:03.972" endtime="20220827 17:24:04.091"/>
+</kw>
+<kw name="Click Text" library="QWeb">
+<arg>Scar the Lion</arg>
+<tag>Interaction</tag>
+<tag>Text</tag>
+<doc>Click text on web page.</doc>
+<status status="PASS" starttime="20220827 17:24:04.093" endtime="20220827 17:24:04.765"/>
+</kw>
+<kw name="Click Text" library="QWeb">
+<arg>Add to cart</arg>
+<tag>Interaction</tag>
+<tag>Text</tag>
+<doc>Click text on web page.</doc>
+<status status="PASS" starttime="20220827 17:24:04.766" endtime="20220827 17:24:04.908"/>
+</kw>
+<kw name="Drop Down" library="QWeb">
+<arg>Size</arg>
+<arg>Large</arg>
+<tag>Dropdown</tag>
+<tag>Interaction</tag>
+<doc>Select an option from dropdown menu/list.</doc>
+<status status="PASS" starttime="20220827 17:24:04.909" endtime="20220827 17:24:06.818"/>
+</kw>
+<status status="PASS" starttime="20220827 17:24:01.622" endtime="20220827 17:24:06.818"/>
+</test>
+<status status="PASS" starttime="20220827 17:24:00.076" endtime="20220827 17:24:06.820"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
