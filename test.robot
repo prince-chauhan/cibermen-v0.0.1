@@ -14,6 +14,20 @@ ${religion} =      HINDU
 ${religionIndx} =      ${1}
 ${studentName}=     Student Name
 ${fatherName}=     Father Name
+${motherName}=     Mother Name
+${dob}=     12/09/2000
+${gender}=     FEMALE
+${female}=      FEMALE
+${nameChanged}=     ${1}
+${newName}=     New Name
+${highSchoolPassingYear}=       2017
+${highSchoolBoard}=       'CBSE'
+${hsbIndx}=     1
+${highSchoolAlphaRoll}=     
+${highSchoolRoll}=      ${53456845}
+${highSchoolName}=      Hgh School Name
+${highSchoolAddress}=      Hgh School Address
+
 
 
 *** Test Cases ***
@@ -66,13 +80,62 @@ Basic interaction
         END
     END
     DropDown    धर्म        [[${religionIndx}]]      index=2
-    ResetConfig
+    ResetConfig 
     
 
     #enter student name
-    TypeText    छात्र / छात्रा का नाम      ${studentName}
-    
+    TypeText    छात्र / छात्रा का नाम      ${studentName}    
 
+    
     #enter father name
     SetConfig       SearchDirection         right
-    TypeText    पिता का नाम      ${fatherName}     index=1
+    TypeText    पिता का नाम* :      ${fatherName}     index=2
+    ResetConfig
+
+    
+    #enter mother name
+    TypeText    माता का नाम* :      ${motherName}
+
+    
+    #enter DOB
+    SetConfig       SearchDirection         right
+    TypeText    जन्मतिथि * :      ${dob}     index=2
+    ResetConfig
+
+    
+    #choose gender
+    DropDown    लिंग* :      ${gender}
+
+    
+    #enter new name if changed after married
+    IF      $nameChanged>0 and "${gender}"=="${female}"
+        SetConfig       SearchDirection         right
+        TypeText    विवाहिता की स्थिति में यदि नाम में परिवर्तन है * :      ${newName}
+        ResetConfig
+    END
+
+    
+    #choose high school passed year
+    DropDown        हाई-स्कूल उत्तीर्ण वर्ष *      ${highSchoolPassingYear}
+
+    
+    #choose high school board
+    ${hsbOpt}=    GetDropDownValues       हाई-स्कूल बोर्ड * :    element_type=dropdown   index=2
+    FOR     ${indx}     ${tempHsb}    IN ENUMERATE    @{hsbOpt}
+        IF      "${tempHsb}"==${highSchoolBoard}
+            ${hsbIndx}=   Set Variable    ${indx}
+        END
+    END
+    DropDown        हाई-स्कूल बोर्ड * :      [[${hsbIndx}]]      index=2
+
+
+    #enter high school roll no
+    ${rollLen} =    GetLength   ${highSchoolAlphaRoll}
+    IF  $rollLen>1
+        TypeText    हाई-स्कूल बोर्ड का अनुक्रमांक :    ${highSchoolAlphaRoll}     index=1
+    END
+    TypeText        हाई-स्कूल बोर्ड का अनुक्रमांक :       ${highSchoolRoll}     index=2
+
+
+    #enter highschool name and Address
+    TypeText    विद्यालय / सँस्था का नाम व पता* :    ${highSchoolName}+${highSchoolAddress}
