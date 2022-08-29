@@ -1,0 +1,11 @@
+{"level":30,"time":"2022-08-29T10:57:51.823Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"Listening on 54620"}
+{"level":30,"time":"2022-08-29T10:57:52.046Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2022-08-29T10:57:52.047Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2022-08-29T10:57:52.075Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2022-08-29T10:57:52.075Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2022-08-29T10:57:56.709Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2022-08-29T10:57:56.709Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2022-08-29T10:57:56.745Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2022-08-29T10:57:56.745Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2022-08-29T10:57:56.816Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2022-08-29T10:57:56.816Z","pid":9504,"hostname":"EC2AMAZ-CQA0LQV","msg":"End of node method closeAllBrowsers"}

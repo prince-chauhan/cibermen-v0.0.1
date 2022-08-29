@@ -27,18 +27,23 @@ ${highSchoolAlphaRoll}=
 ${highSchoolRoll}=      ${53456845}
 ${highSchoolName}=      Hgh School Name
 ${highSchoolAddress}=      Hgh School Address
+${tele}=    ${0}
+${mobile}=      ${9123456780}
+${email}=       fakemail@gmail.com 
+${password}=    Pass@123
 
 
 
 *** Test Cases ***
 Basic interaction
-    OpenBrowser         https://scholarship.up.gov.in/      Chrome   # Open chrome and goto given url
+    QWeb.OpenBrowser         https://scholarship.up.gov.in/      Chrome   # Open chrome and goto given url
     ClickText       STUDENT                         1s              # Click *button* with specific text
     ClickItem       Registration            Fresh Login             1s     
     ClickText       ${subcategory}          ${category}
     
 
-    #choose city
+    
+        #choose city
     ${districtOpt}=    GetDropDownValues       जिला      element_type=dropdown
     FOR     ${indx}     ${dis}      IN ENUMERATE      @{districtOpt}
         IF      "${dis}"=="${district}"
@@ -84,22 +89,22 @@ Basic interaction
     
 
     #enter student name
-    TypeText    छात्र / छात्रा का नाम      ${studentName}    
+    QWeb.TypeText    छात्र / छात्रा का नाम      ${studentName}    
 
     
     #enter father name
     SetConfig       SearchDirection         right
-    TypeText    पिता का नाम* :      ${fatherName}     index=2
+    QWeb.TypeText    पिता का नाम* :      ${fatherName}     index=2
     ResetConfig
 
     
     #enter mother name
-    TypeText    माता का नाम* :      ${motherName}
+    QWeb.TypeText    माता का नाम* :      ${motherName}
 
     
     #enter DOB
     SetConfig       SearchDirection         right
-    TypeText    जन्मतिथि * :      ${dob}     index=2
+    QWeb.TypeText    जन्मतिथि * :      ${dob}     index=2
     ResetConfig
 
     
@@ -110,7 +115,7 @@ Basic interaction
     #enter new name if changed after married
     IF      $nameChanged>0 and "${gender}"=="${female}"
         SetConfig       SearchDirection         right
-        TypeText    विवाहिता की स्थिति में यदि नाम में परिवर्तन है * :      ${newName}
+        QWeb.TypeText    विवाहिता की स्थिति में यदि नाम में परिवर्तन है * :      ${newName}
         ResetConfig
     END
 
@@ -132,10 +137,41 @@ Basic interaction
     #enter high school roll no
     ${rollLen} =    GetLength   ${highSchoolAlphaRoll}
     IF  $rollLen>1
-        TypeText    हाई-स्कूल बोर्ड का अनुक्रमांक :    ${highSchoolAlphaRoll}     index=1
+        QWeb.TypeText    हाई-स्कूल बोर्ड का अनुक्रमांक :    ${highSchoolAlphaRoll}     index=1
     END
-    TypeText        हाई-स्कूल बोर्ड का अनुक्रमांक :       ${highSchoolRoll}     index=2
+    QWeb.TypeText        हाई-स्कूल बोर्ड का अनुक्रमांक :       ${highSchoolRoll}     index=2
 
 
     #enter highschool name and Address
-    TypeText    विद्यालय / सँस्था का नाम व पता* :    ${highSchoolName}+${highSchoolAddress}
+    QWeb.TypeText    विद्यालय / सँस्था का नाम व पता* :    ${highSchoolName}+' '+${highSchoolAddress}      index=3
+
+
+    #enter mobile
+    QWeb.TypeText    मोबाइल    ${mobile}  
+
+
+    #enter telephone
+    SetConfig       SearchDirection     right
+    IF  $tele>0
+        QWeb.TypeText    दूरभाष      ${tele}     index=2
+    ELSE
+        QWeb.TypeText    दूरभाष      ${mobile}       index=2
+    END
+    ResetConfig
+
+
+    #enter email
+    QWeb.TypeText    ईमेल     ${email}
+
+
+    #enter password
+    QWeb.TypeSecret    स्वनिर्मित पासवर्ड डाले.* :     ${password}       index=2
+
+
+    #confirm password
+    QWeb.TypeSecret      स्वनिर्मित पासवर्ड कन्फर्म करे * :       ${password}    
+
+
+    #SetConfig       ScreenshotType      screenshot
+    #${screenshotPath}=      LogScreenshot       fullpage=True
+    #Log To Console      ${screenshotPath}
