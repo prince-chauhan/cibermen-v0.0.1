@@ -1,66 +1,1774 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220829 16:27:48.801" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220830 12:49:32.293" rpa="false" schemaversion="3">
 <suite id="s1" name="Test" source="C:\Users\Administrator\Desktop\cibermen-test\form-automation\test.robot">
-<kw name="Set Library Search Order" library="BuiltIn" type="SETUP">
-<arg>QWeb</arg>
-<arg>Browser</arg>
-<doc>Sets the resolution order to use when a name matches multiple keywords.</doc>
-<status status="PASS" starttime="20220829 16:27:52.049" endtime="20220829 16:27:52.050"/>
-</kw>
-<test id="s1-t1" name="Basic interaction" line="39">
+<test id="s1-t1" name="Basic interaction" line="15">
 <kw name="Open Browser" library="QWeb">
 <arg>https://scholarship.up.gov.in/</arg>
 <arg>Chrome</arg>
 <tag>Browser</tag>
 <tag>Interaction</tag>
 <doc>Open new browser to given url.</doc>
-<msg timestamp="20220829 16:27:52.079" level="INFO">
+<msg timestamp="20220830 12:49:39.466" level="INFO">
 QWeb version number: 2.0.3</msg>
-<msg timestamp="20220829 16:27:53.970" level="INFO">Browser: chrome</msg>
-<msg timestamp="20220829 16:27:53.976" level="INFO">Browser version: 104.0.5112.102</msg>
-<msg timestamp="20220829 16:27:53.978" level="INFO">Chromedriver version: 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307})</msg>
-<status status="PASS" starttime="20220829 16:27:52.077" endtime="20220829 16:27:55.430"/>
+<msg timestamp="20220830 12:49:41.113" level="INFO">Browser: chrome</msg>
+<msg timestamp="20220830 12:49:41.117" level="INFO">Browser version: 104.0.5112.102</msg>
+<msg timestamp="20220830 12:49:41.117" level="INFO">Chromedriver version: 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307})</msg>
+<status status="PASS" starttime="20220830 12:49:39.466" endtime="20220830 12:49:42.312"/>
 </kw>
 <kw name="Click Text" library="QWeb">
 <arg>STUDENT</arg>
-<arg>1s</arg>
 <tag>Interaction</tag>
 <tag>Text</tag>
 <doc>Click text on web page.</doc>
-<status status="PASS" starttime="20220829 16:27:55.431" endtime="20220829 16:27:55.614"/>
+<status status="PASS" starttime="20220830 12:49:42.314" endtime="20220830 12:49:42.435"/>
 </kw>
 <kw name="Click Item" library="QWeb">
 <arg>Registration</arg>
 <arg>Fresh Login</arg>
-<arg>1s</arg>
 <tag>Interaction</tag>
 <tag>Item</tag>
 <doc>Click item (usually icon or picture) on webpage.</doc>
-<status status="PASS" starttime="20220829 16:27:55.615" endtime="20220829 16:27:56.206"/>
+<status status="PASS" starttime="20220830 12:49:42.436" endtime="20220830 12:49:42.881"/>
 </kw>
 <kw name="Click Text" library="QWeb">
-<arg>${subcategory}</arg>
-<arg>${category}</arg>
+<arg>${data['subcategory']}</arg>
+<arg>${data['category']}</arg>
 <tag>Interaction</tag>
 <tag>Text</tag>
 <doc>Click text on web page.</doc>
-<status status="PASS" starttime="20220829 16:27:56.206" endtime="20220829 16:27:56.672"/>
+<status status="PASS" starttime="20220830 12:49:42.883" endtime="20220830 12:49:43.246"/>
 </kw>
-<kw name="//*[@id\=&quot;Captcha&quot;]">
-<var>${xpath}</var>
-<msg timestamp="20220829 16:27:56.693" level="FAIL">No keyword with name '//*[@id\="Captcha"]' found.</msg>
-<status status="FAIL" starttime="20220829 16:27:56.693" endtime="20220829 16:27:56.693"/>
+<kw name="Get Drop Down Values" library="QWeb">
+<var>${districtOpt}</var>
+<arg>जिला</arg>
+<arg>element_type=dropdown</arg>
+<tag>Dropdown</tag>
+<tag>Getters</tag>
+<doc>Return all options from a dropdown menu/list.</doc>
+<msg timestamp="20220830 12:49:45.106" level="INFO">${districtOpt} = ['SELECT', 'AGRA', 'ALIGARH', 'PRAYAGRAJ', 'AMBEDKAR NGR.', 'AURAIYA', 'AZAMGARH', 'BAGHPAT', 'BAHRAICH', 'BALLIA', 'BALRAMPUR', 'BANDA', 'BARABANKI', 'BAREILLY', 'BASTI', 'BIJNOR', 'BUDAUN', 'BULANDS...</msg>
+<status status="PASS" starttime="20220830 12:49:43.251" endtime="20220830 12:49:45.106"/>
+</kw>
+<for flavor="IN ENUMERATE">
+<var>${indx}</var>
+<var>${dis}</var>
+<value>@{districtOpt}</value>
+<iter>
+<var name="${indx}">0</var>
+<var name="${dis}">SELECT</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.108" endtime="20220830 12:49:45.108"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.107" endtime="20220830 12:49:45.108"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.107" endtime="20220830 12:49:45.108"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.107" endtime="20220830 12:49:45.108"/>
+</iter>
+<iter>
+<var name="${indx}">1</var>
+<var name="${dis}">AGRA</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.109" endtime="20220830 12:49:45.109"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.109" endtime="20220830 12:49:45.109"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.108" endtime="20220830 12:49:45.109"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.108" endtime="20220830 12:49:45.109"/>
+</iter>
+<iter>
+<var name="${indx}">2</var>
+<var name="${dis}">ALIGARH</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.110" endtime="20220830 12:49:45.110"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.110" endtime="20220830 12:49:45.110"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.109" endtime="20220830 12:49:45.110"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.109" endtime="20220830 12:49:45.110"/>
+</iter>
+<iter>
+<var name="${indx}">3</var>
+<var name="${dis}">PRAYAGRAJ</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.111" endtime="20220830 12:49:45.111"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.111" endtime="20220830 12:49:45.111"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.110" endtime="20220830 12:49:45.111"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.110" endtime="20220830 12:49:45.111"/>
+</iter>
+<iter>
+<var name="${indx}">4</var>
+<var name="${dis}">AMBEDKAR NGR.</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.112" endtime="20220830 12:49:45.112"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.112" endtime="20220830 12:49:45.112"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.111" endtime="20220830 12:49:45.112"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.111" endtime="20220830 12:49:45.112"/>
+</iter>
+<iter>
+<var name="${indx}">5</var>
+<var name="${dis}">AURAIYA</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.113" endtime="20220830 12:49:45.113"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.113" endtime="20220830 12:49:45.113"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.112" endtime="20220830 12:49:45.113"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.112" endtime="20220830 12:49:45.113"/>
+</iter>
+<iter>
+<var name="${indx}">6</var>
+<var name="${dis}">AZAMGARH</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.114" endtime="20220830 12:49:45.114"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.114" endtime="20220830 12:49:45.114"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.113" endtime="20220830 12:49:45.114"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.113" endtime="20220830 12:49:45.114"/>
+</iter>
+<iter>
+<var name="${indx}">7</var>
+<var name="${dis}">BAGHPAT</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.116" endtime="20220830 12:49:45.116"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.115" endtime="20220830 12:49:45.116"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.115" endtime="20220830 12:49:45.116"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.115" endtime="20220830 12:49:45.116"/>
+</iter>
+<iter>
+<var name="${indx}">8</var>
+<var name="${dis}">BAHRAICH</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.117" endtime="20220830 12:49:45.117"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.117" endtime="20220830 12:49:45.117"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.116" endtime="20220830 12:49:45.117"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.116" endtime="20220830 12:49:45.117"/>
+</iter>
+<iter>
+<var name="${indx}">9</var>
+<var name="${dis}">BALLIA</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.118" endtime="20220830 12:49:45.118"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.118" endtime="20220830 12:49:45.118"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.117" endtime="20220830 12:49:45.118"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.117" endtime="20220830 12:49:45.118"/>
+</iter>
+<iter>
+<var name="${indx}">10</var>
+<var name="${dis}">BALRAMPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.119" endtime="20220830 12:49:45.120"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.119" endtime="20220830 12:49:45.120"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.119" endtime="20220830 12:49:45.120"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.119" endtime="20220830 12:49:45.120"/>
+</iter>
+<iter>
+<var name="${indx}">11</var>
+<var name="${dis}">BANDA</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.121" endtime="20220830 12:49:45.121"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.120" endtime="20220830 12:49:45.121"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.120" endtime="20220830 12:49:45.121"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.120" endtime="20220830 12:49:45.121"/>
+</iter>
+<iter>
+<var name="${indx}">12</var>
+<var name="${dis}">BARABANKI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.122" endtime="20220830 12:49:45.122"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.122" endtime="20220830 12:49:45.122"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.121" endtime="20220830 12:49:45.122"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.121" endtime="20220830 12:49:45.122"/>
+</iter>
+<iter>
+<var name="${indx}">13</var>
+<var name="${dis}">BAREILLY</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.123" endtime="20220830 12:49:45.123"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.123" endtime="20220830 12:49:45.123"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.122" endtime="20220830 12:49:45.123"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.122" endtime="20220830 12:49:45.123"/>
+</iter>
+<iter>
+<var name="${indx}">14</var>
+<var name="${dis}">BASTI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.124" endtime="20220830 12:49:45.124"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.124" endtime="20220830 12:49:45.124"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.124" endtime="20220830 12:49:45.124"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.123" endtime="20220830 12:49:45.124"/>
+</iter>
+<iter>
+<var name="${indx}">15</var>
+<var name="${dis}">BIJNOR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.125" endtime="20220830 12:49:45.125"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.125" endtime="20220830 12:49:45.125"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.125" endtime="20220830 12:49:45.125"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.125" endtime="20220830 12:49:45.126"/>
+</iter>
+<iter>
+<var name="${indx}">16</var>
+<var name="${dis}">BUDAUN</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.126" endtime="20220830 12:49:45.126"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.126" endtime="20220830 12:49:45.126"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.126" endtime="20220830 12:49:45.127"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.126" endtime="20220830 12:49:45.127"/>
+</iter>
+<iter>
+<var name="${indx}">17</var>
+<var name="${dis}">BULANDSHAHR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.127" endtime="20220830 12:49:45.128"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.127" endtime="20220830 12:49:45.128"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.127" endtime="20220830 12:49:45.128"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.127" endtime="20220830 12:49:45.128"/>
+</iter>
+<iter>
+<var name="${indx}">18</var>
+<var name="${dis}">CHANDAULI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.129" endtime="20220830 12:49:45.129"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.128" endtime="20220830 12:49:45.129"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.128" endtime="20220830 12:49:45.129"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.128" endtime="20220830 12:49:45.129"/>
+</iter>
+<iter>
+<var name="${indx}">19</var>
+<var name="${dis}">CHITRAKOOT</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.130" endtime="20220830 12:49:45.130"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.130" endtime="20220830 12:49:45.130"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.129" endtime="20220830 12:49:45.130"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.129" endtime="20220830 12:49:45.130"/>
+</iter>
+<iter>
+<var name="${indx}">20</var>
+<var name="${dis}">CSM NAGAR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.131" endtime="20220830 12:49:45.131"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.131" endtime="20220830 12:49:45.132"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.131" endtime="20220830 12:49:45.132"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.130" endtime="20220830 12:49:45.132"/>
+</iter>
+<iter>
+<var name="${indx}">21</var>
+<var name="${dis}">DEORIA</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.133" endtime="20220830 12:49:45.133"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.132" endtime="20220830 12:49:45.133"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.132" endtime="20220830 12:49:45.133"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.132" endtime="20220830 12:49:45.133"/>
+</iter>
+<iter>
+<var name="${indx}">22</var>
+<var name="${dis}">ETAH</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.134" endtime="20220830 12:49:45.134"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.134" endtime="20220830 12:49:45.134"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.133" endtime="20220830 12:49:45.134"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.133" endtime="20220830 12:49:45.134"/>
+</iter>
+<iter>
+<var name="${indx}">23</var>
+<var name="${dis}">ETAWAH</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.135" endtime="20220830 12:49:45.135"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.135" endtime="20220830 12:49:45.135"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.134" endtime="20220830 12:49:45.135"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.134" endtime="20220830 12:49:45.135"/>
+</iter>
+<iter>
+<var name="${indx}">24</var>
+<var name="${dis}">AYODHYA</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.136" endtime="20220830 12:49:45.136"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.136" endtime="20220830 12:49:45.136"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.135" endtime="20220830 12:49:45.136"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.135" endtime="20220830 12:49:45.136"/>
+</iter>
+<iter>
+<var name="${indx}">25</var>
+<var name="${dis}">FARRUKHABAD</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.137" endtime="20220830 12:49:45.137"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.137" endtime="20220830 12:49:45.137"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.137" endtime="20220830 12:49:45.137"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.137" endtime="20220830 12:49:45.138"/>
+</iter>
+<iter>
+<var name="${indx}">26</var>
+<var name="${dis}">FATEHPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.139" endtime="20220830 12:49:45.139"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.139" endtime="20220830 12:49:45.139"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.138" endtime="20220830 12:49:45.139"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.138" endtime="20220830 12:49:45.139"/>
+</iter>
+<iter>
+<var name="${indx}">27</var>
+<var name="${dis}">FIROZABAD</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.140" endtime="20220830 12:49:45.140"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.140" endtime="20220830 12:49:45.140"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.139" endtime="20220830 12:49:45.140"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.139" endtime="20220830 12:49:45.140"/>
+</iter>
+<iter>
+<var name="${indx}">28</var>
+<var name="${dis}">GB NAGAR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.141" endtime="20220830 12:49:45.141"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.141" endtime="20220830 12:49:45.141"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.140" endtime="20220830 12:49:45.141"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.140" endtime="20220830 12:49:45.141"/>
+</iter>
+<iter>
+<var name="${indx}">29</var>
+<var name="${dis}">GHAZIABAD</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.142" endtime="20220830 12:49:45.142"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.142" endtime="20220830 12:49:45.142"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.142" endtime="20220830 12:49:45.143"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.141" endtime="20220830 12:49:45.143"/>
+</iter>
+<iter>
+<var name="${indx}">30</var>
+<var name="${dis}">GHAZIPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.144" endtime="20220830 12:49:45.144"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.144" endtime="20220830 12:49:45.144"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.143" endtime="20220830 12:49:45.144"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.143" endtime="20220830 12:49:45.144"/>
+</iter>
+<iter>
+<var name="${indx}">31</var>
+<var name="${dis}">GONDA</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.145" endtime="20220830 12:49:45.145"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.145" endtime="20220830 12:49:45.145"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.144" endtime="20220830 12:49:45.145"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.144" endtime="20220830 12:49:45.145"/>
+</iter>
+<iter>
+<var name="${indx}">32</var>
+<var name="${dis}">GORAKHPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.146" endtime="20220830 12:49:45.146"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.146" endtime="20220830 12:49:45.146"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.145" endtime="20220830 12:49:45.146"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.145" endtime="20220830 12:49:45.146"/>
+</iter>
+<iter>
+<var name="${indx}">33</var>
+<var name="${dis}">HAMIRPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.147" endtime="20220830 12:49:45.148"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.147" endtime="20220830 12:49:45.148"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.146" endtime="20220830 12:49:45.148"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.146" endtime="20220830 12:49:45.148"/>
+</iter>
+<iter>
+<var name="${indx}">34</var>
+<var name="${dis}">HAPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.149" endtime="20220830 12:49:45.149"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.149" endtime="20220830 12:49:45.149"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.148" endtime="20220830 12:49:45.149"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.148" endtime="20220830 12:49:45.149"/>
+</iter>
+<iter>
+<var name="${indx}">35</var>
+<var name="${dis}">HARDOI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.150" endtime="20220830 12:49:45.150"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.150" endtime="20220830 12:49:45.150"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.149" endtime="20220830 12:49:45.150"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.149" endtime="20220830 12:49:45.150"/>
+</iter>
+<iter>
+<var name="${indx}">36</var>
+<var name="${dis}">HATHRAS</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.151" endtime="20220830 12:49:45.151"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.151" endtime="20220830 12:49:45.151"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.150" endtime="20220830 12:49:45.151"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.150" endtime="20220830 12:49:45.151"/>
+</iter>
+<iter>
+<var name="${indx}">37</var>
+<var name="${dis}">JALAUN</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.153" endtime="20220830 12:49:45.153"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.152" endtime="20220830 12:49:45.153"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.152" endtime="20220830 12:49:45.153"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.151" endtime="20220830 12:49:45.153"/>
+</iter>
+<iter>
+<var name="${indx}">38</var>
+<var name="${dis}">JAUNPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.154" endtime="20220830 12:49:45.154"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.154" endtime="20220830 12:49:45.154"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.153" endtime="20220830 12:49:45.154"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.153" endtime="20220830 12:49:45.154"/>
+</iter>
+<iter>
+<var name="${indx}">39</var>
+<var name="${dis}">JHANSI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.155" endtime="20220830 12:49:45.155"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.155" endtime="20220830 12:49:45.155"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.154" endtime="20220830 12:49:45.155"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.154" endtime="20220830 12:49:45.155"/>
+</iter>
+<iter>
+<var name="${indx}">40</var>
+<var name="${dis}">JP NAGAR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.156" endtime="20220830 12:49:45.156"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.156" endtime="20220830 12:49:45.156"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.155" endtime="20220830 12:49:45.156"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.155" endtime="20220830 12:49:45.156"/>
+</iter>
+<iter>
+<var name="${indx}">41</var>
+<var name="${dis}">KANNAUJ</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.157" endtime="20220830 12:49:45.157"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.157" endtime="20220830 12:49:45.157"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.157" endtime="20220830 12:49:45.157"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.156" endtime="20220830 12:49:45.157"/>
+</iter>
+<iter>
+<var name="${indx}">42</var>
+<var name="${dis}">KANPUR DEHAT</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.158" endtime="20220830 12:49:45.158"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.158" endtime="20220830 12:49:45.158"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.158" endtime="20220830 12:49:45.158"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.158" endtime="20220830 12:49:45.158"/>
+</iter>
+<iter>
+<var name="${indx}">43</var>
+<var name="${dis}">KANPUR NAGAR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.159" endtime="20220830 12:49:45.159"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.159" endtime="20220830 12:49:45.159"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.159" endtime="20220830 12:49:45.160"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.159" endtime="20220830 12:49:45.160"/>
+</iter>
+<iter>
+<var name="${indx}">44</var>
+<var name="${dis}">KANSHIRAM NAGAR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.160" endtime="20220830 12:49:45.161"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.160" endtime="20220830 12:49:45.161"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.160" endtime="20220830 12:49:45.161"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.160" endtime="20220830 12:49:45.161"/>
+</iter>
+<iter>
+<var name="${indx}">45</var>
+<var name="${dis}">KAUSHAMBI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.162" endtime="20220830 12:49:45.162"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.161" endtime="20220830 12:49:45.162"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.161" endtime="20220830 12:49:45.162"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.161" endtime="20220830 12:49:45.162"/>
+</iter>
+<iter>
+<var name="${indx}">46</var>
+<var name="${dis}">KHERI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.163" endtime="20220830 12:49:45.163"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.163" endtime="20220830 12:49:45.163"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.162" endtime="20220830 12:49:45.163"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.162" endtime="20220830 12:49:45.163"/>
+</iter>
+<iter>
+<var name="${indx}">47</var>
+<var name="${dis}">KUSHINAGAR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.164" endtime="20220830 12:49:45.164"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.164" endtime="20220830 12:49:45.164"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.164" endtime="20220830 12:49:45.164"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.163" endtime="20220830 12:49:45.165"/>
+</iter>
+<iter>
+<var name="${indx}">48</var>
+<var name="${dis}">LALITPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.165" endtime="20220830 12:49:45.166"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.165" endtime="20220830 12:49:45.166"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.165" endtime="20220830 12:49:45.166"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.165" endtime="20220830 12:49:45.166"/>
+</iter>
+<iter>
+<var name="${indx}">49</var>
+<var name="${dis}">LUCKNOW</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.167" endtime="20220830 12:49:45.167"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.167" endtime="20220830 12:49:45.167"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.166" endtime="20220830 12:49:45.167"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.166" endtime="20220830 12:49:45.167"/>
+</iter>
+<iter>
+<var name="${indx}">50</var>
+<var name="${dis}">MAHARAJGANJ</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.168" endtime="20220830 12:49:45.168"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.168" endtime="20220830 12:49:45.168"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.167" endtime="20220830 12:49:45.168"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.167" endtime="20220830 12:49:45.168"/>
+</iter>
+<iter>
+<var name="${indx}">51</var>
+<var name="${dis}">MAHOBA</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.169" endtime="20220830 12:49:45.169"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.169" endtime="20220830 12:49:45.169"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.168" endtime="20220830 12:49:45.169"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.168" endtime="20220830 12:49:45.169"/>
+</iter>
+<iter>
+<var name="${indx}">52</var>
+<var name="${dis}">MAINPURI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.170" endtime="20220830 12:49:45.170"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.170" endtime="20220830 12:49:45.170"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.170" endtime="20220830 12:49:45.170"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.169" endtime="20220830 12:49:45.171"/>
+</iter>
+<iter>
+<var name="${indx}">53</var>
+<var name="${dis}">MATHURA</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.171" endtime="20220830 12:49:45.172"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.171" endtime="20220830 12:49:45.172"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.171" endtime="20220830 12:49:45.172"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.171" endtime="20220830 12:49:45.172"/>
+</iter>
+<iter>
+<var name="${indx}">54</var>
+<var name="${dis}">MAU</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.173" endtime="20220830 12:49:45.173"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.173" endtime="20220830 12:49:45.173"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.172" endtime="20220830 12:49:45.173"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.172" endtime="20220830 12:49:45.173"/>
+</iter>
+<iter>
+<var name="${indx}">55</var>
+<var name="${dis}">MEERUT</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220830 12:49:45.174" level="INFO">${districtIndx} = 55</msg>
+<status status="PASS" starttime="20220830 12:49:45.174" endtime="20220830 12:49:45.174"/>
+</kw>
+<status status="PASS" starttime="20220830 12:49:45.174" endtime="20220830 12:49:45.174"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.173" endtime="20220830 12:49:45.174"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.173" endtime="20220830 12:49:45.174"/>
+</iter>
+<iter>
+<var name="${indx}">56</var>
+<var name="${dis}">MIRZAPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.175" endtime="20220830 12:49:45.176"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.175" endtime="20220830 12:49:45.176"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.175" endtime="20220830 12:49:45.176"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.175" endtime="20220830 12:49:45.176"/>
+</iter>
+<iter>
+<var name="${indx}">57</var>
+<var name="${dis}">MORADABAD</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.177" endtime="20220830 12:49:45.177"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.176" endtime="20220830 12:49:45.177"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.176" endtime="20220830 12:49:45.177"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.176" endtime="20220830 12:49:45.177"/>
+</iter>
+<iter>
+<var name="${indx}">58</var>
+<var name="${dis}">MUZAFFARNAGAR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.178" endtime="20220830 12:49:45.178"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.178" endtime="20220830 12:49:45.178"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.177" endtime="20220830 12:49:45.178"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.177" endtime="20220830 12:49:45.178"/>
+</iter>
+<iter>
+<var name="${indx}">59</var>
+<var name="${dis}">PILIBHIT</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.179" endtime="20220830 12:49:45.179"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.179" endtime="20220830 12:49:45.179"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.178" endtime="20220830 12:49:45.179"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.178" endtime="20220830 12:49:45.179"/>
+</iter>
+<iter>
+<var name="${indx}">60</var>
+<var name="${dis}">PRATAPGARH</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.180" endtime="20220830 12:49:45.181"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.180" endtime="20220830 12:49:45.181"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.180" endtime="20220830 12:49:45.181"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.180" endtime="20220830 12:49:45.181"/>
+</iter>
+<iter>
+<var name="${indx}">61</var>
+<var name="${dis}">RAE BARELI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.182" endtime="20220830 12:49:45.182"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.182" endtime="20220830 12:49:45.182"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.181" endtime="20220830 12:49:45.182"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.181" endtime="20220830 12:49:45.182"/>
+</iter>
+<iter>
+<var name="${indx}">62</var>
+<var name="${dis}">RAMPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.183" endtime="20220830 12:49:45.183"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.183" endtime="20220830 12:49:45.183"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.182" endtime="20220830 12:49:45.183"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.182" endtime="20220830 12:49:45.183"/>
+</iter>
+<iter>
+<var name="${indx}">63</var>
+<var name="${dis}">SAHARANPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.184" endtime="20220830 12:49:45.184"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.184" endtime="20220830 12:49:45.184"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.184" endtime="20220830 12:49:45.185"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.184" endtime="20220830 12:49:45.185"/>
+</iter>
+<iter>
+<var name="${indx}">64</var>
+<var name="${dis}">SAMBHAL</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.185" endtime="20220830 12:49:45.186"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.185" endtime="20220830 12:49:45.186"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.185" endtime="20220830 12:49:45.186"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.185" endtime="20220830 12:49:45.186"/>
+</iter>
+<iter>
+<var name="${indx}">65</var>
+<var name="${dis}">SHAHJAHANPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.187" endtime="20220830 12:49:45.187"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.186" endtime="20220830 12:49:45.187"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.186" endtime="20220830 12:49:45.187"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.186" endtime="20220830 12:49:45.187"/>
+</iter>
+<iter>
+<var name="${indx}">66</var>
+<var name="${dis}">SHAMLI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.188" endtime="20220830 12:49:45.188"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.188" endtime="20220830 12:49:45.188"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.187" endtime="20220830 12:49:45.188"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.187" endtime="20220830 12:49:45.188"/>
+</iter>
+<iter>
+<var name="${indx}">67</var>
+<var name="${dis}">SHRAWASTI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.189" endtime="20220830 12:49:45.189"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.189" endtime="20220830 12:49:45.189"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.188" endtime="20220830 12:49:45.189"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.188" endtime="20220830 12:49:45.189"/>
+</iter>
+<iter>
+<var name="${indx}">68</var>
+<var name="${dis}">SIDDHARTHNAGAR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.190" endtime="20220830 12:49:45.190"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.190" endtime="20220830 12:49:45.190"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.189" endtime="20220830 12:49:45.190"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.189" endtime="20220830 12:49:45.190"/>
+</iter>
+<iter>
+<var name="${indx}">69</var>
+<var name="${dis}">SITAPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.191" endtime="20220830 12:49:45.191"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.191" endtime="20220830 12:49:45.191"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.190" endtime="20220830 12:49:45.191"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.190" endtime="20220830 12:49:45.191"/>
+</iter>
+<iter>
+<var name="${indx}">70</var>
+<var name="${dis}">SK NAGAR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.192" endtime="20220830 12:49:45.192"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.192" endtime="20220830 12:49:45.192"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.192" endtime="20220830 12:49:45.192"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.191" endtime="20220830 12:49:45.192"/>
+</iter>
+<iter>
+<var name="${indx}">71</var>
+<var name="${dis}">SONBHADRA</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.194" endtime="20220830 12:49:45.194"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.193" endtime="20220830 12:49:45.194"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.193" endtime="20220830 12:49:45.194"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.193" endtime="20220830 12:49:45.194"/>
+</iter>
+<iter>
+<var name="${indx}">72</var>
+<var name="${dis}">SR NAGAR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.195" endtime="20220830 12:49:45.195"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.195" endtime="20220830 12:49:45.195"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.194" endtime="20220830 12:49:45.195"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.194" endtime="20220830 12:49:45.195"/>
+</iter>
+<iter>
+<var name="${indx}">73</var>
+<var name="${dis}">SULTANPUR</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.196" endtime="20220830 12:49:45.196"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.196" endtime="20220830 12:49:45.196"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.195" endtime="20220830 12:49:45.196"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.195" endtime="20220830 12:49:45.196"/>
+</iter>
+<iter>
+<var name="${indx}">74</var>
+<var name="${dis}">UNNAO</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.197" endtime="20220830 12:49:45.197"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.197" endtime="20220830 12:49:45.197"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.197" endtime="20220830 12:49:45.197"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.196" endtime="20220830 12:49:45.197"/>
+</iter>
+<iter>
+<var name="${indx}">75</var>
+<var name="${dis}">VARANASI</var>
+<if>
+<branch type="IF" condition="&quot;${dis}&quot;==&quot;${data['district']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${districtIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:45.198" endtime="20220830 12:49:45.199"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:45.198" endtime="20220830 12:49:45.199"/>
+</branch>
+<status status="PASS" starttime="20220830 12:49:45.198" endtime="20220830 12:49:45.199"/>
+</if>
+<status status="PASS" starttime="20220830 12:49:45.198" endtime="20220830 12:49:45.199"/>
+</iter>
+<status status="PASS" starttime="20220830 12:49:45.106" endtime="20220830 12:49:45.199"/>
+</for>
+<kw name="Drop Down" library="QWeb">
+<arg>जिला</arg>
+<arg>[[${districtIndx}]]</arg>
+<tag>Dropdown</tag>
+<tag>Interaction</tag>
+<doc>Select an option from dropdown menu/list.</doc>
+<status status="PASS" starttime="20220830 12:49:45.199" endtime="20220830 12:49:46.041"/>
+</kw>
+<kw name="Set Config" library="QWeb">
+<arg>SearchDirection</arg>
+<arg>right</arg>
+<tag>Config</tag>
+<doc>Set configuration parameter to given value. Return previous value.</doc>
+<status status="PASS" starttime="20220830 12:49:46.042" endtime="20220830 12:49:46.043"/>
+</kw>
+<kw name="Get Drop Down Values" library="QWeb">
+<var>${instituteOpt}</var>
+<arg>शिक्षण संस्थान</arg>
+<arg>element_type=dropdown</arg>
+<arg>index=2</arg>
+<tag>Dropdown</tag>
+<tag>Getters</tag>
+<doc>Return all options from a dropdown menu/list.</doc>
+<msg timestamp="20220830 12:49:54.338" level="INFO">${instituteOpt} = ['SELECT', 'A.P.S COLLEGE OF EDUCATION TECHNOLOGY KHIWAI ROHTA ROAD MRT', 'A.P.S COLLEGE OF EDUCATION JULHERA BHUNI CHOWK, SARADHANA MRT', 'A.P.S. COLLEGE, ROHTA KHIWAI ROAD, VILL KHIWAI, SARDHANA MEE...</msg>
+<status status="PASS" starttime="20220830 12:49:46.043" endtime="20220830 12:49:54.338"/>
+</kw>
+<for flavor="IN ENUMERATE">
+<var>${indx}</var>
+<var>${ins}</var>
+<value>@{instituteOpt}</value>
+<iter>
+<var name="${indx}">0</var>
+<var name="${ins}">SELECT</var>
+<if>
+<branch type="IF" condition="'${ins}'==${data['institute']}">
+<kw name="Set Variable" library="BuiltIn">
+<var>${instituteIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.341" endtime="20220830 12:49:54.341"/>
+</kw>
+<msg timestamp="20220830 12:49:54.341" level="FAIL">Evaluating IF condition failed: Evaluating expression ''SELECT'==MEERUT INSTITUTE OF ENGINEERING &amp; TECHNOLOGY, MEERUT - 250005 ' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20220830 12:49:54.341" endtime="20220830 12:49:54.341"/>
+</branch>
+<status status="FAIL" starttime="20220830 12:49:54.339" endtime="20220830 12:49:54.341"/>
+</if>
+<status status="FAIL" starttime="20220830 12:49:54.339" endtime="20220830 12:49:54.341"/>
+</iter>
+<status status="FAIL" starttime="20220830 12:49:54.339" endtime="20220830 12:49:54.341"/>
+</for>
+<kw name="Drop Down" library="QWeb">
+<arg>शिक्षण संस्थान</arg>
+<arg>[[${instituteIndx}]]</arg>
+<arg>index=2</arg>
+<tag>Dropdown</tag>
+<tag>Interaction</tag>
+<doc>Select an option from dropdown menu/list.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.342" endtime="20220830 12:49:54.342"/>
+</kw>
+<kw name="Reset Config" library="QWeb">
+<tag>Config</tag>
+<doc>Reset the value of given parameter to default value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.342" endtime="20220830 12:49:54.342"/>
+</kw>
+<kw name="Get Drop Down Values" library="QWeb">
+<var>${casteOpt}</var>
+<arg>वर्ग / जाति समूह</arg>
+<arg>element_type=dropdown</arg>
+<tag>Dropdown</tag>
+<tag>Getters</tag>
+<doc>Return all options from a dropdown menu/list.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.343" endtime="20220830 12:49:54.343"/>
+</kw>
+<for flavor="IN ENUMERATE">
+<var>${indx}</var>
+<var>${tempCaste}</var>
+<value>@{casteOpt}</value>
+<iter>
+<var name="${indx}"/>
+<var name="${tempCaste}"/>
+<if>
+<branch type="IF" condition="&quot;${tempCaste}&quot;==${data['caste']}">
+<kw name="Set Variable" library="BuiltIn">
+<var>${casteIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.343" endtime="20220830 12:49:54.343"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:54.343" endtime="20220830 12:49:54.343"/>
+</branch>
+<status status="NOT RUN" starttime="20220830 12:49:54.343" endtime="20220830 12:49:54.343"/>
+</if>
+<status status="NOT RUN" starttime="20220830 12:49:54.343" endtime="20220830 12:49:54.343"/>
+</iter>
+<status status="NOT RUN" starttime="20220830 12:49:54.343" endtime="20220830 12:49:54.343"/>
+</for>
+<kw name="Drop Down" library="QWeb">
+<arg>वर्ग / जाति समूह</arg>
+<arg>[[${casteIndx}]]</arg>
+<tag>Dropdown</tag>
+<tag>Interaction</tag>
+<doc>Select an option from dropdown menu/list.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.344" endtime="20220830 12:49:54.344"/>
+</kw>
+<kw name="Set Config" library="QWeb">
+<arg>SearchDirection</arg>
+<arg>right</arg>
+<tag>Config</tag>
+<doc>Set configuration parameter to given value. Return previous value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.344" endtime="20220830 12:49:54.344"/>
+</kw>
+<kw name="Get Drop Down Values" library="QWeb">
+<var>${religionOpt}</var>
+<arg>धर्म</arg>
+<arg>element_type=dropdown</arg>
+<arg>index=2</arg>
+<tag>Dropdown</tag>
+<tag>Getters</tag>
+<doc>Return all options from a dropdown menu/list.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.345" endtime="20220830 12:49:54.345"/>
+</kw>
+<for flavor="IN ENUMERATE">
+<var>${indx}</var>
+<var>${tempReligion}</var>
+<value>@{religionOpt}</value>
+<iter>
+<var name="${indx}"/>
+<var name="${tempReligion}"/>
+<if>
+<branch type="IF" condition="&quot;${tempReligion}&quot;==&quot;${data['religion']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${religionIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.346" endtime="20220830 12:49:54.346"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:54.346" endtime="20220830 12:49:54.346"/>
+</branch>
+<status status="NOT RUN" starttime="20220830 12:49:54.346" endtime="20220830 12:49:54.346"/>
+</if>
+<status status="NOT RUN" starttime="20220830 12:49:54.345" endtime="20220830 12:49:54.346"/>
+</iter>
+<status status="NOT RUN" starttime="20220830 12:49:54.345" endtime="20220830 12:49:54.346"/>
+</for>
+<kw name="Drop Down" library="QWeb">
+<arg>धर्म</arg>
+<arg>[[${religionIndx}]]</arg>
+<arg>index=2</arg>
+<tag>Dropdown</tag>
+<tag>Interaction</tag>
+<doc>Select an option from dropdown menu/list.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.346" endtime="20220830 12:49:54.346"/>
+</kw>
+<kw name="Reset Config" library="QWeb">
+<tag>Config</tag>
+<doc>Reset the value of given parameter to default value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.347" endtime="20220830 12:49:54.347"/>
+</kw>
+<kw name="Type Text" library="QWeb">
+<arg>छात्र / छात्रा का नाम</arg>
+<arg>${data['studentName']}</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.347" endtime="20220830 12:49:54.348"/>
+</kw>
+<kw name="Set Config" library="QWeb">
+<arg>SearchDirection</arg>
+<arg>right</arg>
+<tag>Config</tag>
+<doc>Set configuration parameter to given value. Return previous value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.348" endtime="20220830 12:49:54.348"/>
+</kw>
+<kw name="Type Text" library="QWeb">
+<arg>पिता का नाम* :</arg>
+<arg>${data['fatherName']}</arg>
+<arg>index=2</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.348" endtime="20220830 12:49:54.348"/>
+</kw>
+<kw name="Reset Config" library="QWeb">
+<tag>Config</tag>
+<doc>Reset the value of given parameter to default value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.349" endtime="20220830 12:49:54.349"/>
+</kw>
+<kw name="Type Text" library="QWeb">
+<arg>माता का नाम* :</arg>
+<arg>${data['motherName']}</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.349" endtime="20220830 12:49:54.349"/>
+</kw>
+<kw name="Set Config" library="QWeb">
+<arg>SearchDirection</arg>
+<arg>right</arg>
+<tag>Config</tag>
+<doc>Set configuration parameter to given value. Return previous value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.350" endtime="20220830 12:49:54.350"/>
+</kw>
+<kw name="Type Text" library="QWeb">
+<arg>जन्मतिथि * :</arg>
+<arg>${data['dob']}</arg>
+<arg>index=2</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.350" endtime="20220830 12:49:54.350"/>
+</kw>
+<kw name="Reset Config" library="QWeb">
+<tag>Config</tag>
+<doc>Reset the value of given parameter to default value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.351" endtime="20220830 12:49:54.351"/>
+</kw>
+<kw name="Drop Down" library="QWeb">
+<arg>लिंग* :</arg>
+<arg>${data['gender']}</arg>
+<tag>Dropdown</tag>
+<tag>Interaction</tag>
+<doc>Select an option from dropdown menu/list.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.352" endtime="20220830 12:49:54.352"/>
+</kw>
+<if>
+<branch type="IF" condition="${data['nameChanged']}&gt;0 and ${data['gender']}==&quot;${female}&quot;">
+<kw name="Set Config" library="QWeb">
+<arg>SearchDirection</arg>
+<arg>right</arg>
+<tag>Config</tag>
+<doc>Set configuration parameter to given value. Return previous value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.352" endtime="20220830 12:49:54.352"/>
+</kw>
+<kw name="Type Text" library="QWeb">
+<arg>विवाहिता की स्थिति में यदि नाम में परिवर्तन है * :</arg>
+<arg>${data['newName']}</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.353" endtime="20220830 12:49:54.353"/>
+</kw>
+<kw name="Reset Config" library="QWeb">
+<tag>Config</tag>
+<doc>Reset the value of given parameter to default value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.353" endtime="20220830 12:49:54.353"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:54.352" endtime="20220830 12:49:54.353"/>
+</branch>
+<status status="NOT RUN" starttime="20220830 12:49:54.352" endtime="20220830 12:49:54.353"/>
+</if>
+<kw name="Drop Down" library="QWeb">
+<arg>हाई-स्कूल उत्तीर्ण वर्ष *</arg>
+<arg>${data['highSchoolPassingYear']}</arg>
+<tag>Dropdown</tag>
+<tag>Interaction</tag>
+<doc>Select an option from dropdown menu/list.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.353" endtime="20220830 12:49:54.353"/>
+</kw>
+<kw name="Get Drop Down Values" library="QWeb">
+<var>${hsbOpt}</var>
+<arg>हाई-स्कूल बोर्ड * :</arg>
+<arg>element_type=dropdown</arg>
+<arg>index=2</arg>
+<tag>Dropdown</tag>
+<tag>Getters</tag>
+<doc>Return all options from a dropdown menu/list.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.354" endtime="20220830 12:49:54.354"/>
+</kw>
+<for flavor="IN ENUMERATE">
+<var>${indx}</var>
+<var>${tempHsb}</var>
+<value>@{hsbOpt}</value>
+<iter>
+<var name="${indx}"/>
+<var name="${tempHsb}"/>
+<if>
+<branch type="IF" condition="&quot;${tempHsb}&quot;==&quot;${data['highSchoolBoard']}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${hsbIndx}</var>
+<arg>${indx}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.354" endtime="20220830 12:49:54.355"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:54.354" endtime="20220830 12:49:54.355"/>
+</branch>
+<status status="NOT RUN" starttime="20220830 12:49:54.354" endtime="20220830 12:49:54.355"/>
+</if>
+<status status="NOT RUN" starttime="20220830 12:49:54.354" endtime="20220830 12:49:54.355"/>
+</iter>
+<status status="NOT RUN" starttime="20220830 12:49:54.354" endtime="20220830 12:49:54.355"/>
+</for>
+<kw name="Drop Down" library="QWeb">
+<arg>हाई-स्कूल बोर्ड * :</arg>
+<arg>[[${hsbIndx}]]</arg>
+<arg>index=2</arg>
+<tag>Dropdown</tag>
+<tag>Interaction</tag>
+<doc>Select an option from dropdown menu/list.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.355" endtime="20220830 12:49:54.355"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${rollLen}</var>
+<arg>${data['highSchoolAlphaRoll']}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.356" endtime="20220830 12:49:54.356"/>
+</kw>
+<if>
+<branch type="IF" condition="$rollLen&gt;1">
+<kw name="Type Text" library="QWeb">
+<arg>हाई-स्कूल बोर्ड का अनुक्रमांक :</arg>
+<arg>${data['highSchoolAlphaRoll']}</arg>
+<arg>index=1</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.356" endtime="20220830 12:49:54.356"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:54.356" endtime="20220830 12:49:54.357"/>
+</branch>
+<status status="NOT RUN" starttime="20220830 12:49:54.356" endtime="20220830 12:49:54.357"/>
+</if>
+<kw name="Type Text" library="QWeb">
+<arg>हाई-स्कूल बोर्ड का अनुक्रमांक :</arg>
+<arg>${data['highSchoolRoll']}</arg>
+<arg>index=2</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.357" endtime="20220830 12:49:54.357"/>
+</kw>
+<kw name="Type Text" library="QWeb">
+<arg>विद्यालय / सँस्था का नाम व पता* :</arg>
+<arg>${data['highSchoolName']}+' '+${data['highSchoolAddress']}</arg>
+<arg>index=3</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.357" endtime="20220830 12:49:54.357"/>
+</kw>
+<kw name="Type Text" library="QWeb">
+<arg>मोबाइल</arg>
+<arg>${data['mobile']}</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.358" endtime="20220830 12:49:54.358"/>
+</kw>
+<kw name="Set Config" library="QWeb">
+<arg>SearchDirection</arg>
+<arg>right</arg>
+<tag>Config</tag>
+<doc>Set configuration parameter to given value. Return previous value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.358" endtime="20220830 12:49:54.358"/>
+</kw>
+<if>
+<branch type="IF" condition="$tele&gt;0">
+<kw name="Type Text" library="QWeb">
+<arg>दूरभाष</arg>
+<arg>${data['tele']}</arg>
+<arg>index=2</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.359" endtime="20220830 12:49:54.359"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:54.359" endtime="20220830 12:49:54.359"/>
+</branch>
+<branch type="ELSE">
+<kw name="Type Text" library="QWeb">
+<arg>दूरभाष</arg>
+<arg>${data['mobile']}</arg>
+<arg>index=2</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.359" endtime="20220830 12:49:54.359"/>
+</kw>
+<status status="NOT RUN" starttime="20220830 12:49:54.359" endtime="20220830 12:49:54.359"/>
+</branch>
+<status status="NOT RUN" starttime="20220830 12:49:54.359" endtime="20220830 12:49:54.359"/>
+</if>
+<kw name="Reset Config" library="QWeb">
+<tag>Config</tag>
+<doc>Reset the value of given parameter to default value.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.360" endtime="20220830 12:49:54.360"/>
+</kw>
+<kw name="Type Text" library="QWeb">
+<arg>ईमेल</arg>
+<arg>${data['email']}</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type given text to a text field.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.360" endtime="20220830 12:49:54.360"/>
+</kw>
+<kw name="Type Secret" library="QWeb">
+<arg>स्वनिर्मित पासवर्ड डाले.* :</arg>
+<arg>*****</arg>
+<arg>index=2</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type secret information such as password.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.361" endtime="20220830 12:49:54.362"/>
+</kw>
+<kw name="Type Secret" library="QWeb">
+<arg>स्वनिर्मित पासवर्ड कन्फर्म करे * :</arg>
+<arg>*****</arg>
+<tag>Input</tag>
+<tag>Interaction</tag>
+<doc>Type secret information such as password.</doc>
+<status status="NOT RUN" starttime="20220830 12:49:54.363" endtime="20220830 12:49:54.363"/>
 </kw>
 <kw name="Capture Icon" library="QWeb">
-<arg>${xpath}</arg>
+<var>${file}</var>
+<arg>//*[@id\="Captcha"]</arg>
 <tag>Icon</tag>
 <tag>Interaction</tag>
 <doc>Take a screenshot of an element.</doc>
-<status status="NOT RUN" starttime="20220829 16:27:56.696" endtime="20220829 16:27:56.696"/>
+<status status="NOT RUN" starttime="20220830 12:49:54.364" endtime="20220830 12:49:54.364"/>
 </kw>
-<status status="FAIL" starttime="20220829 16:27:52.050" endtime="20220829 16:27:56.707">No keyword with name '//*[@id\="Captcha"]' found.</status>
+<status status="FAIL" starttime="20220830 12:49:39.466" endtime="20220830 12:49:54.365">Evaluating IF condition failed: Evaluating expression ''SELECT'==MEERUT INSTITUTE OF ENGINEERING &amp; TECHNOLOGY, MEERUT - 250005 ' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
 </test>
-<status status="FAIL" starttime="20220829 16:27:48.804" endtime="20220829 16:27:56.742"/>
+<status status="FAIL" starttime="20220830 12:49:32.309" endtime="20220830 12:49:54.367"/>
 </suite>
 <statistics>
 <total>
@@ -73,5 +1781,11 @@ QWeb version number: 2.0.3</msg>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20220830 12:49:32.309" level="ERROR">Error in file 'C:\Users\Administrator\Desktop\cibermen-test\form-automation\test.robot' on line 6: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20220830 12:49:32.309" level="ERROR">Error in file 'C:\Users\Administrator\Desktop\cibermen-test\form-automation\test.robot' on line 7: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20220830 12:49:32.309" level="ERROR">Error in file 'C:\Users\Administrator\Desktop\cibermen-test\form-automation\test.robot' on line 8: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20220830 12:49:32.309" level="ERROR">Error in file 'C:\Users\Administrator\Desktop\cibermen-test\form-automation\test.robot' on line 9: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20220830 12:49:32.309" level="ERROR">Error in file 'C:\Users\Administrator\Desktop\cibermen-test\form-automation\test.robot' on line 10: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg timestamp="20220830 12:49:32.309" level="ERROR">Error in file 'C:\Users\Administrator\Desktop\cibermen-test\form-automation\test.robot' on line 11: Setting variable '' failed: Invalid variable name ''.</msg>
 </errors>
 </robot>
